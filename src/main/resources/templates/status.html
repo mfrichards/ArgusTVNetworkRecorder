@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"/>
+    <title>ArgusTV Network Recorder</title>
+</head>
+<body>
+<h1 style="font-family: Arial;">ArgusTV Network Recorder</h1>
+<br/>
+<span th:each="encoder: ${encoders}">
+    <table style="text-align: left; width: 1166px; font-family: Arial; height: 66px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr style="font-weight: bold;">
+          <td colspan="2" rowspan="1" style="height: 38px; width: 1019px;"><big><big><span th:text="${encoder.name}"> Encoder </span></big></big></td>
+        </tr>
+        <tr>
+          <td style="width: 127px; height: 25px;">Status</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.status}"> Title </span></td>
+        </tr>
+        <tr th:if="${encoder['program']}">
+          <td style="width: 127px; height: 25px;">Program</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.program}"> Program </span></td>
+        </tr>
+        <tr th:if="${encoder['channel']}">
+          <td style="width: 127px; height: 25px;">Channel</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.channel}"> Channel </span></td>
+        </tr>
+        <tr th:if="${encoder['start_time']}">
+          <td style="width: 127px; height: 25px;">Start Time</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.start_time}"> Time </span></td>
+        </tr>
+        <tr th:if="${encoder['stop_time']}">
+          <td style="width: 127px; height: 25px;">Stop Time</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.stop_time}"> Time </span></td>
+        </tr>
+        <tr th:if="${encoder['actual_start_time']}">
+          <td style="width: 127px; height: 25px;">Actual Start Time</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.actual_start_time}"> Time </span></td>
+        </tr>
+        <tr th:if="${encoder['file']}">
+          <td style="width: 127px; height: 25px;">Recording File</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.file}"> File </span></td>
+        </tr>
+        <tr th:if="${encoder['size']}">
+          <td style="width: 127px; height: 25px;">File Size</td>
+          <td style="width: 1019px; height: 25px;"><span th:text="${encoder.size}"> Size </span></td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
+</span>
+</body>
+</html>
+

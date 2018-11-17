@@ -1,0 +1,53 @@
+import java.text.SimpleDateFormat
+
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.richards'
+version = '1.0'
+sourceCompatibility = 1.8
+
+springBoot {
+	buildInfo {
+        additionalProperties = [
+            operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})",
+            time: buildTime()
+        ]
+    }
+}
+
+def buildTime() {
+    final dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    dateFormat.format(new Date())
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile('org.codehaus.groovy:groovy-all')
+	compile 'net.java.dev.jna:jna:4.5.0'
+	compile 'net.java.dev.jna:jna-platform:4.5.0'
+	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+	compile 'org.codehaus.gpars:gpars:1.2.0'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
