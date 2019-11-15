@@ -27,7 +27,7 @@ Refer to the sample "NetworkRecorder.properties" file in this project for a desc
 
 To start the network recorder, run the following command from the Windows command line:
 
-%JAVA_HOME%\bin\javaw.exe -jar ArgusTVNetworkRecorder-0.1.1.jar
+%JAVA_HOME%\bin\javaw.exe -jar ArgusTVNetworkRecorder-1.0.jar
 
 With the network recorder running, you must configure the Argus TV server to use the recorder. This is done as follows:
 
